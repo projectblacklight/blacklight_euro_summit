@@ -1,0 +1,28 @@
+
+$color1: #ffc1a7; // Salmon
+$color2: #337ab7; // Dark blue
+$color3: #a3871e; // Gold
+
+
+$gray-600: #868e96 !default;
+$cyan:    #17a2b8 !default;
+$yellow:  #ffc107 !default;
+$red:     #dc3545 !default;
+$gray-100: #f8f9fa !default;
+$gray-800: #343a40 !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge((
+  "primary":    $color2,
+  "secondary":  $gray-600,
+  "success":    $color3,
+  "info":       $cyan,
+  "warning":    $yellow,
+  "danger":     $red,
+  "light":      $gray-100,
+  "dark":       $gray-800
+), $theme-colors);
+
+.topbar {
+  background-color: $color1;
+}
