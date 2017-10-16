@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   mount Blacklight::Engine => '/'
   root to: "catalog#index"
     concern :searchable, Blacklight::Routes::Searchable.new
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   concern :exportable, Blacklight::Routes::Exportable.new
 
-  resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
+  resources :solr_documents, only: [:show], path: '/:lang', controller: 'catalog', defaults: { lang: 'Tibetan' } do
     concerns :exportable
   end
 
@@ -21,6 +21,8 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
